@@ -1,6 +1,6 @@
 ALTER SESSION SET "_ORACLE_SCRIPT"=true;
 
-SELECT CASE WHEN 1006 <= CAST(CAST(SUBSTR(HANDLER_CODE, 1, INSTR(HANDLER_CODE, '.') - 1) AS VARCHAR2(10)) AS NUMBER) * 100 + CAST(CAST(SUBSTR(HANDLER_CODE, INSTR(HANDLER_CODE, '.') + 1) AS VARCHAR2(10)) AS NUMBER) THEN 'SaveToDB Framework is up-to-date. Update skipped' ELSE '' END AS CHECK_VERSION FROM XLS.HANDLERS WHERE TABLE_SCHEMA = 'XLS' AND TABLE_NAME = 'SAVETODB_FRAMEWORK' AND COLUMN_NAME = 'VERSION' AND EVENT_NAME = 'Information';
+SELECT CASE WHEN 1008 <= CAST(CAST(SUBSTR(HANDLER_CODE, 1, INSTR(HANDLER_CODE, '.') - 1) AS VARCHAR2(10)) AS NUMBER) * 100 + CAST(CAST(SUBSTR(HANDLER_CODE, INSTR(HANDLER_CODE, '.') + 1) AS VARCHAR2(10)) AS NUMBER) THEN 'SaveToDB Framework is up-to-date. Update skipped' ELSE '' END AS CHECK_VERSION FROM XLS.HANDLERS WHERE TABLE_SCHEMA = 'XLS' AND TABLE_NAME = 'SAVETODB_FRAMEWORK' AND COLUMN_NAME = 'VERSION' AND EVENT_NAME = 'Information';
 
 MERGE INTO XLS.HANDLERS t
 USING
@@ -19,7 +19,7 @@ USING
         , CAST(NULL AS NUMBER) AS EDIT_PARAMETERS
     FROM DUAL
 
-    UNION ALL SELECT 'XLS', 'SAVETODB_FRAMEWORK', 'VERSION', 'Information', NULL, NULL, 'ATTRIBUTE', '10.6', NULL, NULL, NULL FROM DUAL
+    UNION ALL SELECT 'XLS', 'SAVETODB_FRAMEWORK', 'VERSION', 'Information', NULL, NULL, 'ATTRIBUTE', '10.8', NULL, NULL, NULL FROM DUAL
     UNION ALL SELECT 'XLS', 'HANDLERS', 'EVENT_NAME', 'ValidationList', NULL, NULL, 'VALUES', 'Actions, AddHyperlinks, AddStateColumn, Authentication, BitColumn, Change, ContextMenu, ConvertFormulas, DataTypeBit, DataTypeBoolean, DataTypeDate, DataTypeDateTime, DataTypeDateTimeOffset, DataTypeDouble, DataTypeInt, DataTypeGuid, DataTypeString, DataTypeTime, DataTypeTimeSpan, DefaultListObject, DefaultValue, DependsOn, DoNotAddChangeHandler, DoNotAddDependsOn, DoNotAddManyToMany, DoNotAddValidation, DoNotChange, DoNotConvertFormulas, DoNotKeepComments, DoNotKeepFormulas, DoNotSave, DoNotSelect, DoNotSort, DoNotTranslate, DoubleClick, DynamicColumns, Format, Formula, FormulaValue, Information, JsonForm, KeepFormulas, KeepComments, License, LoadFormat, ManyToMany, ParameterValues, ProtectRows, RegEx, SaveFormat, SaveWithoutTransaction, SelectionChange, SelectionList, SelectPeriod, SyncParameter, UpdateChangedCellsOnly, UpdateEntireRow, ValidationList', NULL, NULL, NULL FROM DUAL
 
     ) s
@@ -87,7 +87,7 @@ FROM
         , CAST(NULL AS NUMBER) AS EDIT_PARAMETERS
     FROM DUAL
 
-    UNION ALL SELECT 'XLS', 'SAVETODB_FRAMEWORK', 'VERSION', 'Information', NULL, NULL, 'ATTRIBUTE', '10.6', NULL, NULL, NULL FROM DUAL
+    UNION ALL SELECT 'XLS', 'SAVETODB_FRAMEWORK', 'VERSION', 'Information', NULL, NULL, 'ATTRIBUTE', '10.8', NULL, NULL, NULL FROM DUAL
     UNION ALL SELECT 'XLS', 'HANDLERS', 'EVENT_NAME', 'ValidationList', NULL, NULL, 'VALUES', 'Actions, AddHyperlinks, AddStateColumn, Authentication, BitColumn, Change, ContextMenu, ConvertFormulas, DataTypeBit, DataTypeBoolean, DataTypeDate, DataTypeDateTime, DataTypeDateTimeOffset, DataTypeDouble, DataTypeInt, DataTypeGuid, DataTypeString, DataTypeTime, DataTypeTimeSpan, DefaultListObject, DefaultValue, DependsOn, DoNotAddChangeHandler, DoNotAddDependsOn, DoNotAddManyToMany, DoNotAddValidation, DoNotChange, DoNotConvertFormulas, DoNotKeepComments, DoNotKeepFormulas, DoNotSave, DoNotSelect, DoNotSort, DoNotTranslate, DoubleClick, DynamicColumns, Format, Formula, FormulaValue, Information, JsonForm, KeepFormulas, KeepComments, License, LoadFormat, ManyToMany, ParameterValues, ProtectRows, RegEx, SaveFormat, SaveWithoutTransaction, SelectionChange, SelectionList, SelectPeriod, SyncParameter, UpdateChangedCellsOnly, UpdateEntireRow, ValidationList', NULL, NULL, NULL FROM DUAL
 
     ) s
